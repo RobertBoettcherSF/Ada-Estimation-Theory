@@ -8,9 +8,9 @@ and **Cramér–Rao lower bound** (CRLB) worked examples — including the Wikip
 **AWGN constant-in-noise** derivation and the **Uniform[0,θ]** sample-maximum
 classroom example (related to the German tank problem).
 
-Estimation theory studies how to recover unknown parameters \(\theta\) from
-noisy measurements \(x\) whose distribution \(p(x\mid\theta)\) depends on
-\(\theta\). An *estimator* \(\hat\theta(x)\) maps samples to parameter space;
+Estimation theory studies how to recover unknown parameters $\theta$ from
+noisy measurements $x$ whose distribution $p(x\mid\theta)$ depends on
+$\theta$. An *estimator* $\hat\theta(x)$ maps samples to parameter space;
 quality is judged by bias, variance, mean squared error (MSE), and whether the
 estimator attains the CRLB (efficiency).
 
@@ -28,12 +28,12 @@ Estimation*.
 | Concern | Approach | Notes |
 | --- | --- | --- |
 | **Sample stats** | Mean, Variance (1/N and 1/(N−1)) | Basics / Estimators |
-| **MoM** | Exp rate; Uniform[0,θ] \(2\bar x\) | Match first moment |
-| **MLE** | Gaussian μ/σ², Bernoulli \(p\), Uniform max, AWGN | Closed forms |
+| **MoM** | Exp rate; Uniform[0,θ] $2\bar x$ | Match first moment |
+| **MLE** | Gaussian μ/σ², Bernoulli $p$, Uniform max, AWGN | Closed forms |
 | **Error metrics** | Bias, Var, MSE; MSE = Bias² + Var | Monte Carlo helpers |
-| **CRLB** | Gaussian mean \(I=N/\sigma^2\); Bernoulli \(I=N/(p(1-p))\) | Efficiency checks |
-| **AWGN** | \(\hat A=\bar x\) attains \(\sigma^2/N\) | Wikipedia worked example |
-| **Uniform max** | \(\hat\theta_{\mathrm{MLE}}=\max x_i\) biased low | ≠ MoM; Bias \(-\theta/(N+1)\) |
+| **CRLB** | Gaussian mean $I=N/\sigma^2$; Bernoulli $I=N/(p(1-p))$ | Efficiency checks |
+| **AWGN** | $\hat A=\bar x$ attains $\sigma^2/N$ | Wikipedia worked example |
+| **Uniform max** | $\hat\theta_{\mathrm{MLE}}=\max x_i$ biased low | ≠ MoM; Bias $-\theta/(N+1)$ |
 
 Language: **Ada 2023** (ISO/IEC 8652:2023), compiled with GNAT (`-gnat2022`).
 
@@ -60,52 +60,52 @@ Named exceptions: `Invalid_Argument`, `Degenerate_Geometry`,
 
 ### Sample mean and variance
 
-\[
+$$
 \bar x=\frac1N\sum_{i=1}^N x_i,\qquad
 \hat\sigma^2_{\mathrm{MLE}}=\frac1N\sum_i(x_i-\bar x)^2,\qquad
 s^2=\frac1{N-1}\sum_i(x_i-\bar x)^2.
-\]
+$$
 
 ### AWGN constant-in-noise (Wikipedia)
 
-Model \(x[n]=A+w[n]\), \(w[n]\sim\mathcal N(0,\sigma^2)\) i.i.d. The MLE is
-the sample mean \(\hat A=\bar x\), with
+Model $x[n]=A+w[n]$, $w[n]\sim\mathcal N(0,\sigma^2)$ i.i.d. The MLE is
+the sample mean $\hat A=\bar x$, with
 
-\[
+$$
 \mathrm{Var}(\hat A)=\frac{\sigma^2}{N},\qquad
 \mathcal I(A)=\frac{N}{\sigma^2},\qquad
 \mathrm{CRLB}=\frac1{\mathcal I}=\frac{\sigma^2}{N}.
-\]
+$$
 
-The sample mean **attains** the CRLB for all \(N\) and \(A\) (efficient / MVUE).
+The sample mean **attains** the CRLB for all $N$ and $A$ (efficient / MVUE).
 
-### Uniform\([0,\theta]\)
+### Uniform$[0,\theta]$
 
-\[
+$$
 \hat\theta_{\mathrm{MoM}}=2\bar x,\qquad
 \hat\theta_{\mathrm{MLE}}=\max_i x_i,\qquad
 \mathbb E[\max]=\frac{N\theta}{N+1},\qquad
 \mathrm{Bias}(\hat\theta_{\mathrm{MLE}})=-\frac{\theta}{N+1}.
-\]
+$$
 
 MLE ≠ MoM; the maximum is biased low (Wikipedia classroom example).
 
 ### Bernoulli / Gaussian CRLB
 
-\[
+$$
 \mathcal I(p)=\frac{N}{p(1-p)},\quad
 \mathrm{Var}(\hat p)=\frac{p(1-p)}{N}
 \quad\text{(attains bound)};
 \qquad
 \mathcal I(\mu)=\frac{N}{\sigma^2},\quad
 \mathrm{Var}(\bar x)=\frac{\sigma^2}{N}.
-\]
+$$
 
 ### MSE identity
 
-\[
+$$
 \mathrm{MSE}(\hat\theta)=\mathrm{Bias}^2(\hat\theta)+\mathrm{Var}(\hat\theta).
-\]
+$$
 
 ## Usage
 
