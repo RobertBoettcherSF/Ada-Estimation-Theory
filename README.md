@@ -27,13 +27,13 @@ Estimation*.
 
 | Concern | Approach | Notes |
 | --- | --- | --- |
-| **Sample stats** | Mean, Variance ($1/N$ and $1/(N-1)$) | Basics / Estimators |
-| **MoM** | Exp rate; $\mathrm{Uniform}[0,\theta]$, $2\bar{x}$ | Match first moment |
-| **MLE** | Gaussian $\mu/\sigma^2$, Bernoulli $p$, Uniform max, AWGN | Closed forms |
-| **Error metrics** | Bias, Var, MSE; $\mathrm{MSE} = \mathrm{Bias}^2 + \mathrm{Var}$ | Monte Carlo helpers |
-| **CRLB** | Gaussian mean $I = N/\sigma^2$; Bernoulli $I = N/(p(1-p))$ | Efficiency checks |
-| **AWGN** | $\hat{A} = \bar{x}$ attains $\sigma^2/N$ | Wikipedia worked example |
-| **Uniform max** | $\hat{\theta}_{\mathrm{MLE}} = \max x_i$ biased low | $\ne$ MoM; Bias $-\theta/(N+1)$ |
+| **Sample stats** | Mean, Variance (1/N and 1/(N−1)) | Basics / Estimators |
+| **MoM** | Exp rate; Uniform[0, θ] with 2x̄ | Match first moment |
+| **MLE** | Gaussian μ / σ², Bernoulli p, Uniform max, AWGN | Closed forms |
+| **Error metrics** | Bias, Var, MSE; MSE = Bias² + Var | Monte Carlo helpers |
+| **CRLB** | Gaussian mean I = N/σ²; Bernoulli I = N / (p(1−p)) | Efficiency checks |
+| **AWGN** | Â = x̄ attains σ² / N | Wikipedia worked example |
+| **Uniform max** | θ̂_MLE = max xᵢ (biased low) | ≠ MoM; Bias: −θ / (N+1) |
 
 Language: **Ada 2023** (ISO/IEC 8652:2023), compiled with GNAT (`-gnat2022`).
 
